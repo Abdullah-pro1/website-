@@ -91,8 +91,8 @@ export default function Home() {
         {/* Summer Coding Challenge Column */}
         <div className="grid-cols-1  w-full h-full overflow-auto   ">
           <div className="justify-start h-30 h-screen  bg-slate-500 border-2 border-slate-300">
-            {/* Apply the background color class here */}
-            <h1 class="pt-5 ml-5 c hover:text-slate-300"> Summer Coding Challenge</h1>
+            {/* Apply the background color className here */}
+            <h1 className="pt-5 ml-5 text-black hover:text-slate-300"> Summer Coding Challenge</h1>
             <Image
               height={40}
               width={40}
@@ -143,36 +143,36 @@ export default function Home() {
                       <input
                         type=" textbox "
                         placeholder="        Add Description"
-                        class="h-40 w-80 m-5 ml-7 rounded-lg bg-gray-300 shadow-md border-2"
+                        className="h-40 w-80 m-5 ml-7 rounded-lg bg-gray-300 shadow-md border-2"
                       ></input>
                     </div>
-                    <div class="flex ">
-                      <div class=" font-bold text-black mt-5 ml-5 text-xl flex">
+                    <div className="flex ">
+                      <div className=" font-bold text-black mt-5 ml-5 text-xl flex">
                         Priority
                       </div>
-                      <button class="text-green-600 border-green-500 font-bold border-4 rounded-lg w-12 h-10  p-2 mt-2 ml-4">
+                      <button className="text-green-600 border-green-500 font-bold border-4 rounded-lg w-12 h-10  p-2 mt-2 ml-4">
                         low
                       </button>
-                      <button class="text-yellow-400 border-yellow-400 font-bold border-2 rounded-lg w-24 h-10  p-2 mt-2 ml-4">
+                      <button className="text-yellow-400 border-yellow-400 font-bold border-2 rounded-lg w-24 h-10  p-2 mt-2 ml-4">
                         Medium
                       </button>
-                      <button class="text-red-400 border-red-400 font-bold border-2 rounded-lg w-16 h-10  p-2 mt-2 ml-4">
+                      <button className="text-red-400 border-red-400 font-bold border-2 rounded-lg w-16 h-10  p-2 mt-2 ml-4">
                         high
                       </button>
                     </div>
 
-                    <div class="mt-5 flex  text-xl ml-5">
-                      <h1 class="font-bold text-black">Repeat every</h1>
-                      <button class="border-2  rounded-lg w-10 ml-4 text-slate-200">
+                    <div className="mt-5 flex  text-xl ml-5">
+                      <h1 className="font-bold text-black">Repeat every</h1>
+                      <button className="border-2  rounded-lg w-10 ml-4 text-slate-200">
                         2
                       </button>
-                      <button class="border-2  rounded-lg w-20 ml-4 text-slate-200">
+                      <button className="border-2  rounded-lg w-20 ml-4 text-slate-200">
                         Weeks
                       </button>
                     </div>
 
-                    <div class="mt-5 flex  text-xl ml-5">
-                      <h1 class="font-bold text-black">
+                    <div className="mt-5 flex  text-xl ml-5">
+                      <h1 className="font-bold text-black">
                         <FontAwesomeIcon
                           className="    float-right  h-5  ml-5 mt-1"
                           icon={faCirclePlus}
@@ -181,8 +181,8 @@ export default function Home() {
                       </h1>
                     </div>
 
-                    <div class="mt-5 flex  text-xl ml-5">
-                      <h1 class="font-bold text-black">
+                    <div className="mt-5 flex  text-xl ml-5">
+                      <h1 className="font-bold text-black">
                         <FontAwesomeIcon
                           className="    float-right  h-5  ml-4 mt-2"
                           icon={faLocationCrosshairs  }
@@ -190,8 +190,8 @@ export default function Home() {
                       Add Location</h1>
                     </div>
 
-                    <div class="mt-5 flex  text-xl ml-5">
-                      <h1 class="font-bold text-black">
+                    <div className="mt-5 flex  text-xl ml-5">
+                      <h1 className="font-bold text-black">
                         <FontAwesomeIcon
                           className="    float-right  h-5  ml-4 mt-1"
                           icon={ faToggleOn}
@@ -199,28 +199,28 @@ export default function Home() {
                     </div>
 
                     <div>
-                      <input type="textbox" placeholder="Add tags like work, Exercise etc " class="mt-5 rounded-lg p-2 w-80 ml-2 "></input>
+                      <input type="textbox" placeholder="Add tags like work, Exercise etc " className="mt-5 rounded-lg p-2 w-80 ml-2 "></input>
                     </div>
 
                     <div>
-                      <button class="bg-slate-300 text-black  float-right rounded-lg p-3 mt-5  mr-3 font-bold"> Save Task</button>
+                      <button className="bg-slate-300 text-black  float-right rounded-lg p-3 mt-5  mr-3 font-bold"> Save Task</button>
                     </div>
                   </h1>
                 </div>
 
                 {/* Div for Quote */}
 
-                <div class=" bg-slate-500">
+                <div className=" bg-slate-500">
                 <div className="flex flex-col bg-gray-400 w-80 rounded-lg mt-3 mr-4 drop-shadow-2xl shadow-2xl shadow-black ml-5 p-3 h-screen">
                   <h1 className="font-bold flex text-black  justify-center">Quote</h1>
                 
                   <div className="mt-2 bg-slate-200 m-2 p-3 rounded-lg">
-                  <h1 class="font-bold">
+                  <h1 className="font-bold">
                         <FontAwesomeIcon
                           className="    float-right  h-5  ml-4 mt-1"
                           icon={ faEllipsis}
                         /></h1>
-                   <p class="mt-5 text-slate-800"> We have three roles on earth: 
+                   <p className="mt-5 text-slate-800"> We have three roles on earth: 
                     to learn, to love, to eat. 
                     When we stop learning, 
                     we start stegnate and died. 
@@ -243,6 +243,8 @@ export default function Home() {
       </div>
 
       <div className="grid-cols-2 bg-gray-500 border-2"></div>
+
+      
     </main>
   );
 }
