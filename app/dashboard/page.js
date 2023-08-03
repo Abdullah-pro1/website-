@@ -41,6 +41,9 @@ export default function Dashboard(){
     { id: "2", subtitle: "Update portfolio", clr: "yellow" },
     { id: "2", subtitle: "Buy idea", clr: "green" }  ];
 
+    if (typeof window === "undefined") {
+      return null; // Return null on the server-side to prevent rendering
+    }
     return (
       <>
           {status === "authenticated" ? (
