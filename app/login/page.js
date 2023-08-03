@@ -1,14 +1,22 @@
-import React, { Component } from "react";
+"use client";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import image from "../images/code.png.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
-export class login extends Component {
-  render() {
-    return (
+export default function Login() {
+  const router = useRouter();
+  const { status } = useSession();
+  const handleOnClick = () => {
+    signIn("google");
+  };
+  return (
+    <>
+    {status !== "authenticated" ?
       <div className="h-screen bg-gray-700   flex items-center justify-center">
         <div
           className="bg-gray-600 h-3/4 w-96 drop-shadow shadow-2xl shadow-gray-950 
@@ -65,12 +73,15 @@ export class login extends Component {
             </button>
           </div>
 
-          <div className=" text-slate-100 flex justify-center items-center">OR</div>
+          <div className=" text-slate-100 flex justify-center items-center">
+            OR
+          </div>
 
           <div className="flex">
             <FontAwesomeIcon
               className=" hover:scale-125   bg-gray-950 p-2 ml-28 mt-1 h-8 rounded-full"
               icon={faGoogle}
+              onClick={handleOnClick}
             ></FontAwesomeIcon>
             <FontAwesomeIcon
               className=" hover:scale-125 bg-gray-950 p-2 ml-20 mt-1 h-8 rounded-full"
@@ -81,12 +92,16 @@ export class login extends Component {
           <divc className=" mt-3 text-sm font-medium flex justify-center items-center">
             dont have an account?
             <div className="flex ml-2 hover:scale-125   font-semibold text-lg">
-            <Link href={"./signup"}> Sign Up </Link></div>
+              <Link href={"./signup"}> Sign Up </Link>
+            </div>
           </divc>
         </div>
-      </div>
-    );
-  }
-}
 
-export default login;
+     
+      </div>
+      : (
+          router.push("/dashboard")
+        )}
+    </>
+  );
+}

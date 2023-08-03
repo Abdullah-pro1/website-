@@ -1,3 +1,4 @@
+"use client"
 import React, { Component } from "react";
 import Image from "next/image";
 import image from "../images/code.png.png";
@@ -6,7 +7,7 @@ import { faCircleCheck, faEnvelope, faLock, faPhone, faUser } from "@fortawesome
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
-export class login extends Component {
+export class signup extends Component {
   render() {
     return (
       <div className="h-screen bg-gray-700   flex items-center justify-center">
@@ -131,4 +132,4 @@ export class login extends Component {
   }
 }
 
-export default login;
+export default signup;

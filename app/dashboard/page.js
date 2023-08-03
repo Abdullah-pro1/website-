@@ -1,6 +1,9 @@
+'use client'
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Inter } from "next/font/google";
-import Todolist from "@/Components/Todolist";
+import Todolist from "../Components/Todolist";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTableCellsLarge,
@@ -19,8 +22,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import image from "../images/kaaka.jpg";
 
-const inter = Inter({ subsets: ["latin"] });
-export default function Home() {
+
+export default function Dashboard(){
+    const router = useRouter();
+  const {status , data:session} = useSession();
   const dataSet = [
     {
       id: "1",
@@ -35,9 +40,12 @@ export default function Home() {
     { id: "1", subtitle: "Email find out job proposal", clr: "yellow" },
     { id: "2", subtitle: "Update portfolio", clr: "yellow" },
     { id: "2", subtitle: "Buy idea", clr: "green" }  ];
-  return (
-    <main>
-      <div className="flex  ">
+
+    return (
+      <>
+          {status === "authenticated" ? (
+            <>
+            <div className="flex  ">
         {/* My Stack Column */}
         <div className=" justify-start w-1/6 h-screen  bg-slate-500 drop-shadow-2xl shadow-2xl shadow-black  ">
           <h5 className="font-bold m-5  text-black  hover:bg-slate-400 hover:rounded-lg pl-2">
@@ -79,7 +87,7 @@ export default function Home() {
             Settings
           </h5>
 
-          <div className=" mt-96 text-black font-bold  hover:bg-slate-400 hover:rounded-lg pl-2">
+          <div onClick={signOut} className=" mt-96 text-black font-bold  hover:bg-slate-400 hover:rounded-lg pl-2">
             <FontAwesomeIcon
               className="text-sm -mb-2 mx-2 px-2.5 py-2 h-4 text-white"
               icon={faRightFromBracket}
@@ -92,12 +100,12 @@ export default function Home() {
         <div className="grid-cols-1  w-full h-full overflow-auto   ">
           <div className="justify-start h-30 h-screen  bg-slate-500 border-2 border-slate-300">
             {/* Apply the background color className here */}
-            <h1 className="pt-5 ml-5 text-black hover:text-slate-300"> Summer Coding Challenge</h1>
+            <h1 className="pt-5 ml-5 text-black hover:text-slate-300"> {session?.user?.name}</h1>
             <Image
               height={40}
               width={40}
               className=" float-right mr-5 -mt-6  rounded-full"
-              src={image}
+              src={session?.user?.image}
               alt="grid icon "
             ></Image>
             <FontAwesomeIcon
@@ -244,7 +252,12 @@ export default function Home() {
 
       <div className="grid-cols-2 bg-gray-500 border-2"></div>
 
-      
-    </main>
-  );
+            </>
+          ) : 
+            router.push("/login")
+          }
+        
+      </>
+    );
+
 }
