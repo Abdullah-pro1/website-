@@ -63,6 +63,10 @@ export default function Dashboard() {
 		GetTaskData()
 	}, [add])
 
+  if (typeof window === "undefined") {
+    return null; // Return null on the server-side to prevent rendering
+  }
+  
   async function saveTaskData() {
     try {
       const response = await fetch("../api/addtask", {
