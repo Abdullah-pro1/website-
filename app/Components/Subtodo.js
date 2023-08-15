@@ -12,9 +12,9 @@ function Subtodo(props) {
       </div>
       <div className=" flex float-right items-end col-span-1">
       {
-        props.clr=="yellow"?
+        props.clr=="medium"?
       <div className={`h-4 w-4  rounded-full  bg-yellow-300`}></div>:
-      props.clr=="red"?
+      props.clr=="high"?
       <div className={`h-4 w-4 rounded-full  bg-red-600   `}></div>:
       
       <div className={`h-4 w-4 rounded-full  bg-green-300`}></div>
